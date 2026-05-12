@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "179523543712",
+    "project_id": "owntestproject-85bf3",
+    "storage_bucket": "owntestproject-85bf3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:179523543712:android:6651d7ef656af08bc69fc5",
+        "android_client_info": {
+          "package_name": "com.clouddevicemanager"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCW3qST4epbvgZrZwmtNOoSQFgBmItJNvM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
