@@ -1,0 +1,3 @@
+<resources>
+    <style name="Theme.CloudDeviceManager" parent="Theme.Material3.DayNight.NoActionBar"/>
+</resources>
