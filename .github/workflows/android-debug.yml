@@ -3,10 +3,8 @@ name: Android Debug APK
 on:
   workflow_dispatch:
   push:
-    branches: ["main"]
-
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+    branches:
+      - main
 
 jobs:
   build:
@@ -20,17 +18,10 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: "17"
+          java-version: '17'
 
       - name: Make gradlew executable
         run: chmod +x android/gradlew
-
-      - name: Debug: show theme line
-        run: |
-          echo "---- Manifest theme line ----"
-          grep -n "android:theme" android/app/src/main/AndroidManifest.xml || true
-          echo "---- Material dep ----"
-          grep -n "com.google.android.material:material" android/app/build.gradle.kts || true
 
       - name: Build Debug APK
         working-directory: android
