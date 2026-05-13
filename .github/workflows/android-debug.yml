@@ -1,0 +1,43 @@
+name: Android Debug APK
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ["main"]
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Make gradlew executable
+        run: chmod +x android/gradlew
+
+      - name: Debug: show theme line
+        run: |
+          echo "---- Manifest theme line ----"
+          grep -n "android:theme" android/app/src/main/AndroidManifest.xml || true
+          echo "---- Material dep ----"
+          grep -n "com.google.android.material:material" android/app/build.gradle.kts || true
+
+      - name: Build Debug APK
+        working-directory: android
+        run: ./gradlew :app:assembleDebug --stacktrace
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-debug-apk
+          path: android/app/build/outputs/apk/debug/*.apk
