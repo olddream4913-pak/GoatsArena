@@ -1,7 +1,8 @@
 package com.clouddevicemanager.devices.presentation
 
-import com.clouddevicemanager.common.REGION_OPTIONS
 import androidx.lifecycle.ViewModel
+import com.clouddevicemanager.common.REGION_OPTIONS
+import com.clouddevicemanager.common.ANDROID_VERSION_OPTIONS
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.clouddevicemanager.data.model.CloudDevice
@@ -21,7 +22,7 @@ data class DevicesUiState(
     val showCreateDialog: Boolean = false,
     val nameInput: String = "",
     val regionInput: String = REGION_OPTIONS.first(),
-    val androidVersionInput: String = ANDROID_VERSION_OPTIONS[2],
+    val androidVersionInput: String = ANDROID_VERSION_OPTIONS.firstOrNull() ?: "14"
     val errorMessage: String? = null,
     val infoMessage: String? = null
 )

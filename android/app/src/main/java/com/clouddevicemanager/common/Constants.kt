@@ -6,3 +6,5 @@ val REGION_OPTIONS = listOf(
     "Europe",
     "Asia"
 )
+
+val ANDROID_VERSION_OPTIONS = listOf("10", "13", "14", "15")
