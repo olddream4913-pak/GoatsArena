@@ -1,5 +1,6 @@
 package com.clouddevicemanager.devices.presentation
 
+import com.clouddevicemanager.common.REGION_OPTIONS
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
